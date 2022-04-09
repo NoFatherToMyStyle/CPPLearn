@@ -1,0 +1,44 @@
+#include "std_lib_facilities.h"
+
+int rand(int x) {
+	return (x * 43) % 10;
+}
+
+void computerPlay(int x) {
+	if (rand(x) < 4) {
+		cout << "CPU chooses paper\n";
+	}
+	else if (rand(x) > 6) {
+		cout << "CPU chooses rock\n";
+	}
+	else cout << "CPU chooses scissors\n";
+}
+
+int main()
+{
+	int numEnter;
+	char playerChoice;
+	cout << "Enter r, p, or s to play rock paper scissors, followed by a number up to 10000. Don't repeat numbers for continued play!\n";
+	while (cin >> playerChoice >> numEnter) {
+
+
+		switch (playerChoice) {
+		case 'r':cout << "You choose rock\n";
+			computerPlay(numEnter);
+			break;
+
+		case 'p':cout << "You choose paper\n";
+			computerPlay(numEnter);
+			break;
+
+		case 's':cout << "You choose scissors\n";
+			computerPlay(numEnter);
+			break;
+
+		default: cout << "I don't know that move\n";
+			break;
+		}
+	}
+
+	return 0;
+}
