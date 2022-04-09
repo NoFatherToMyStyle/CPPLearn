@@ -1,0 +1,49 @@
+#include "std_lib_facilities.h"
+#include <algorithm>
+
+
+int main()
+{
+	int x = 2;
+	int counter = 0;
+	int sum = 0;
+	int max;
+	int n;
+	cout << "Input the max number you want to find the prime numbers up to: \n";
+	cin >> max;
+	cout << "Input the number of primes you want to find: \n";
+	cin >> n;
+	cout << "\n";
+	vector<int> notPrime;
+	vector<int> prime;
+	for (int i = 0; i < max; ++i) {
+		while (counter < max / x) {
+			if (sum == x) counter++;
+			else {
+				notPrime.push_back(sum);
+				++counter;
+			}
+			sum += x;
+		}
+		counter = 0;
+		++x;
+		sum = x;
+		++i;
+	}
+	sort(notPrime);
+	for (int c = 2; c < max; ++c) {
+		if (std::binary_search(notPrime.begin(), notPrime.end(), c));
+		else {
+			prime.push_back(c);
+			if (prime.size() == n)  break;
+		}
+	}
+
+
+		for (int g = 0; g < prime.size(); ++g) {
+			cout << prime[g] << "\n ";
+		}
+
+		cout << "\nTotal prime numbers found is: " << prime.size() << "\n\n";
+		return 0;
+	}
