@@ -1,0 +1,53 @@
+#include "std_lib_facilities.h"
+int main()
+{
+    vector<string> wordList = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+    string wordNum1;
+    string wordNum2;
+    bool v1 = false;
+    bool v2 = false;
+    int val1 = 0;
+    int val2 = 0;
+    char op;
+    cout << "Enter your equation: \n";
+    while (cin >> wordNum1 >> op >> wordNum2) {
+        for (int i = 0; i < wordList.size(); i++) {
+            if (wordNum1 == wordList[i]) {
+                val1 = i;
+                v1 = true;
+            }
+            if (wordNum2 == wordList[i]) {
+                val2 = i;
+                v2 = true;
+            }
+         }
+        if (v1 == false) val1 = stoi(wordNum1);
+        if (v2 == false) val2 = stoi(wordNum2);
+    
+          switch (op) {
+          case '+':
+              cout << "The sum of " << wordNum1 << " and "
+                  << wordNum2 << " is " << val1 + val2 << "\n";
+              break;
+          case '-':
+              cout << "The difference of " << wordNum1 << " and "
+                  << wordNum2 << " is " << val1 - val2 << "\n";
+              break;
+          case '*':
+              cout << "The product of " << wordNum1 << " and "
+                  << wordNum2 << " is " << val1 * val2 << "\n";
+              break;
+          case '/':
+              cout << "The quotient of " << wordNum1 << " and "
+                  << wordNum2 << " is " << val1 / val2 << "\n";
+              break;
+          default:
+              cout << "That is an illegal operator";
+              break;
+          }
+              cout << "Enter your equation: \n";
+              v1 = false;
+              v2 = false;
+    }
+    return 0;
+}
