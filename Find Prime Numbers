@@ -2,8 +2,8 @@
 
 bool isPrime(int x) {
 	bool check = true;
-	if (x % 2 == 0 || x % 3 == 0 || x % 5 == 0 || x % 7 == 0) check = false;
-	if (x == 1 || x == 2 || x == 3 || x == 5 || x == 7) check = true;
+	if (x % 2 == 0 || x % 3 == 0 || x % 5 == 0 || x % 7 == 0 || x == 1) check = false;
+	if (x == 2 || x == 3 || x == 5 || x == 7) check = true;
 	return check;
 }
 
