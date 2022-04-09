@@ -1,0 +1,41 @@
+#include "std_lib_facilities.h"
+
+// Convert to meter for comparing
+double converter(double x,string y) {
+	if (y == "m") return x;
+	else if (y == "cm") return x / 100.0;
+	else if (y == "in") return x * 2.54 / 100.0;
+	else if (y == "ft") return x / 12.0 * 2.54 / 100.0;
+}
+
+int main()
+{
+	double v1, small = DBL_MAX, large = DBL_MIN;
+	string unit;
+	double compareV;
+	double meterSum = 0;
+	int numberOfEntries = 0;
+	vector<double> listOfValues;
+		while (cin >> v1 >> unit) {
+			if (unit == "cm" || unit == "m" || unit == "in" || unit == "ft") {
+				compareV = converter(v1, unit);
+				if (small == DBL_MAX && large == DBL_MIN) small = compareV, large = compareV;
+				if (compareV <= small) small = compareV;
+				if (compareV >= large) large = compareV;
+				if (small == compareV) cout << v1 << unit << " is the smallest so far.\n";
+				if (large == compareV) cout << v1 << unit << " is the largest so far. \n";
+				++numberOfEntries;
+				meterSum += compareV;
+				listOfValues.push_back(compareV);
+			}
+			else cout << "Illegal unit entry!";
+	}
+		sort(listOfValues);
+		cout << "The smallest number entered: " << small << " meters.\n"
+			<< "The largest number entered: " << large << " meters.\n"
+			<< "The number of values entered: " << numberOfEntries << "\n"
+			<< "The total sum of all values: " << meterSum << "\n";
+		for (int i = 0; i < listOfValues.size(); ++i) cout << listOfValues[i] << "\n";
+
+	return 0;
+}
