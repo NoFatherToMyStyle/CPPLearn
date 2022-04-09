@@ -1,0 +1,42 @@
+#include "std_lib_facilities.h"
+int main()
+{
+	int num;
+	char answer;
+	int higherNum = 50;
+	int lowerNum = 1;
+	int maxNum = 100;
+	int minNum = 1;
+	cout << "Enter a number 1-100.";
+	cin >> num;
+	cout << "Is your number less than 50? Y or N";
+	while (cin >> answer) {
+		if ((higherNum + lowerNum) / 2 == num && (higherNum + lowerNum) % 2 == 0 && minNum != 1) {
+			cout << "Your number is x1 " << num;
+			break;
+		}
+		if (answer == 'Y') {
+			if (higherNum - 1 == lowerNum) {
+				cout << "Your number is x2 " << minNum; break;
+			}
+			maxNum = higherNum - 1;
+			higherNum -= (higherNum - lowerNum) / 2;
+			if (lowerNum <= minNum) lowerNum = minNum;
+			cout << "Is your number less than " << higherNum;
+			
+			
+		}
+		else if (answer == 'N') {
+			if (higherNum == maxNum) {
+				cout << "Your number is x3 " << maxNum; break;
+			}
+			minNum = lowerNum - 1;
+			lowerNum = higherNum;
+			higherNum = (higherNum * 2 + lowerNum) / 2;
+			if (higherNum >= maxNum) higherNum = maxNum;
+			cout << "Is your number less than " << higherNum;
+		}
+		else cout << "Input Y or N";
+	}
+	return 0;
+}
