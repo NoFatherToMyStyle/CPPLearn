@@ -1,5 +1,5 @@
 #include "std_lib_facilities.h"
-
+// NOT FINISHED Requires more work in case the Mode is shared
 // Convert to meter for comparing
 double converter(double x, string y) {
 	if (y == "m") return x;
