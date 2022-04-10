@@ -1,0 +1,43 @@
+#include "std_lib_facilities.h"
+
+
+
+int main()
+{
+	
+	string s1;
+	vector<string> listOfStrings;
+	string small = " ", large = " ";
+
+	while (cin >> s1) {
+		listOfStrings.push_back(s1);
+		if (small == " " && large == " ") small = s1, large = s1;
+		if (s1.length() <= small.length()) small = s1;
+		if (s1.length() >= large.length()) large = s1;
+		}
+	sort(listOfStrings);
+	int count = 1;
+	int checkCount = 1;
+	int checkChecker = 0;
+	string repWord = " ";
+	for (int i = 0; i < listOfStrings.size() - 1; ++i) {
+		if (listOfStrings[i] == listOfStrings[i + 1]) {
+			++count;
+		}
+		else {
+			checkCount = count;
+			if (checkChecker < checkCount) repWord = listOfStrings[i];
+			else checkChecker = checkCount;
+			count = 0;
+		}
+	}
+	int numberOfEntries = listOfStrings.size();
+	cout << "One of the smallest words entered: " << small << "\n"
+		<< "One of the largest words entered: " << large << "\n"
+		<< "The number of words entered: " << numberOfEntries << "\n"
+		<< "The mode of all the words: " << repWord << "\n" << checkCount << "\n" << count << "\n\n\n";
+
+	for (int i = 0; i < listOfStrings.size(); ++i) cout << listOfStrings[i] << "\n";
+
+	return 0;
+}
