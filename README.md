@@ -1,2 +1,2 @@
 # CPPLearn
-Completed exercises from "C++ Programming Pricinples" by Bjarne Stroustrup.
+Completed exercises from "C++ Programming Principles" by Bjarne Stroustrup.
