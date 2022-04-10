@@ -1,0 +1,52 @@
+#include "std_lib_facilities.h"
+
+int main()
+{
+	vector<string> nameList;
+	vector<int> scoreList;
+	string name = " ";
+	int score;
+	bool check = false;
+	cout << "Enter a name and a score\nEnd input with name 'NoName' and score '0'\n";
+	while (cin >> name >> score)
+	{
+		if (name == "NoName" && score == 0) break;
+		nameList.push_back(name);
+		scoreList.push_back(score);
+	}
+	string option = " ";
+	cout << "Enter 'score' to see if any names match a score:\nEnter 'name' to find out a players score\n";
+	cin >> option;
+	while (option != "score" && option != "name") {
+		cout << "That is not an option, try 'score' or 'name'";
+			cin >> option;
+	}
+	if (option == "score"){
+		cout << "Input a score to find out who has that score.: \n";
+		cin >> score;
+		for (int i = 0; i < scoreList.size(); ++i) {
+			if (score == scoreList[i]) {
+				cout << nameList[i] << "\n";
+				check = true;
+			}
+		}
+		if (check == false) cout << "Score not found\n";
+	}
+	if (option == "name") {
+		cout << "Input a score to find out who has that score.: \n";
+		cin >> name;
+		for (int i = 0; i < nameList.size(); ++i) {
+			if (name == nameList[i]) {
+				cout << scoreList[i] << "\n";
+				check = true;
+			}
+		}
+		if (check == false) cout << "Name not found\n";
+	}
+
+	cout << "\n\n\nBelow is the list of entries. \n\n";
+	for (int i = 0; i < nameList.size(); ++i) {
+		cout << nameList[i] << " " << scoreList[i] << "\n";
+	}
+	return 0;
+}
