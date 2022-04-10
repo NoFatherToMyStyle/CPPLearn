@@ -1,7 +1,6 @@
 #include "std_lib_facilities.h"
-
-
-
+// Incomplete need to be able to find multiple modes
+// Will come back after learning Tokens
 int main()
 {
 	
@@ -17,18 +16,16 @@ int main()
 		}
 	sort(listOfStrings);
 	int count = 1;
-	int checkCount = 1;
-	int checkChecker = 0;
+	int checkCount = 0;
 	string repWord = " ";
 	for (int i = 0; i < listOfStrings.size() - 1; ++i) {
 		if (listOfStrings[i] == listOfStrings[i + 1]) {
 			++count;
+			if (checkCount < count) repWord = listOfStrings[i];
 		}
 		else {
-			checkCount = count;
-			if (checkChecker < checkCount) repWord = listOfStrings[i];
-			else checkChecker = checkCount;
-			count = 0;
+			if (checkCount < count) repWord = listOfStrings[i], checkCount = count;
+			count = 1;
 		}
 	}
 	int numberOfEntries = listOfStrings.size();
