@@ -1,3 +1,3 @@
 # CPPLearn
-Projects from Learning C++
- This is where I'm putting my projects from C++ text book.
+Exercises from Learning C++
+ This is where I'm putting my exercises from C++ text book.
