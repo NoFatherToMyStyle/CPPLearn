@@ -1,0 +1,58 @@
+#include "std_lib_facilities.h"
+
+class Name_value {
+public:
+	string name{""};
+	int score{0};
+};
+
+int main()
+{
+	bool check = false;
+	Name_value player;
+	player.name;
+	player.score;
+	vector<Name_value> scorecard;
+
+	cout << "Enter a name and a score\nEnd input with name 'NoName' and score '0'\n";
+	while (cin >> player.name >> player.score) {
+		if (player.name == "NoName" && player.score == 0) break;
+		Name_value playerCard;
+		playerCard.name = player.name;
+		playerCard.score = player.score;
+		scorecard.push_back(playerCard);
+	}
+
+	string option = " ";
+	cout << "Enter 'score' to see if any names match a score:\nEnter 'name' to find out a players score\n";
+	cin >> option;
+	while (option != "score" && option != "name") {
+		cout << "That is not an option, try 'score' or 'name'";
+		cin >> option;
+	}
+
+	if (option == "score") {
+		cout << "Input a score to find out who has that score.: \n";
+		cin >> player.score;
+		for (int i = 0; i < scorecard.size(); ++i) {
+			if (player.score == scorecard[i].score) {
+				cout << scorecard[i].name << "\n";
+				check = true;
+			}
+		}
+		if (check == false) cout << "Score not found\n";
+	}
+
+	if (option == "name") {
+		cout << "Input a name to find out their score: \n";
+		cin >> player.name;
+		for (int i = 0; i < scorecard.size(); ++i) {
+			if (player.name == scorecard[i].name) {
+				cout << scorecard[i].name << "\n";
+				check = true;
+			}
+		}
+		if (check == false) cout << "Name not found\n";
+	}
+	return 0;
+}
