@@ -1,0 +1,16 @@
+#include <iostream>
+
+int main() {
+	int cents;
+	std::cout << "Enter a number of cents to see the change received back" << std::endl;
+	std::cin >> cents;
+	std::cout << "Dollars: " << cents / 100 << std::endl;
+	cents %= 100;
+	std::cout << "Quarters: " << cents / 25 << std::endl;
+	cents %= 25;
+	std::cout << "Dimes: " << cents / 10 << std::endl;
+	cents %= 10;
+	std::cout << "Nickels: " << cents / 5 << std::endl;
+	cents %= 5;
+	std::cout << "Pennys: " << cents << std::endl;
+}
