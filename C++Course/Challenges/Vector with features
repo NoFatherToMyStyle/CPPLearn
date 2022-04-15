@@ -71,6 +71,7 @@ int main() {
 		std::cout << "Please make a selection from the menu:" << std::endl;
 		std::cout << "P - Print numbers" << std::endl;
 		std::cout << "A - Add a number" << std::endl;
+		std::cout << "C - Clear the list" << std::endl;
 		std::cout << "M - Display mean of the numbers" << std::endl;
 		std::cout << "S - Display the smallest number" << std::endl;
 		std::cout << "L - Display the largest number" << std::endl;
@@ -82,9 +83,15 @@ int main() {
 			printList(numList);
 			break;
 		}
-		case 'A': case 'a' : {
+		case 'A': case 'a': {
 			addToList(numList);
 			break;
+		}
+		case 'C': case 'c': {
+			std::cout << "List is cleared!" << std::endl << std::endl;
+			numList.clear();
+			break;
+
 		}
 		case 'M': case 'm': {
 			meanOfList(numList);
