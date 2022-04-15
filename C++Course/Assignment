@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+
+int main() {
+	std::string wordIn;
+	std::cout << "Input a sentence to make a pyramid"
+		<< std::endl << std::endl;
+	std::getline(std::cin, wordIn);
+	std::cout << std::endl;
+	int stringLength = wordIn.length();
+//makes the number of spaces required in a string 
+	std::string space(stringLength - 1, ' ');
+
+	for (int i = 0; i < stringLength; ++i) {
+		int back = i;
+		int front = 0;
+		std::cout << space;
+
+//Loops front of string
+		while (front != i){
+			std::cout << wordIn[front];
+			++front;
+		}
+
+//Loops back end of string
+		while (back != -1) {
+			std::cout << wordIn[back];
+			--back;
+		}
+		std::cout << std::endl;
+
+// Removes the space after use
+		if (space.length() == 0);
+		else {
+			space.erase(space.length() - 1);
+		}
+	}
+	return 0;
+}
