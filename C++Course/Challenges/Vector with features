@@ -71,7 +71,6 @@ int main() {
 		std::cout << " ========================================" << std::endl;
 		std::cout << "| Please make a selection from the menu: |" << std::endl;
 		std::cout << "|========================================|" << std::endl;
-
 		std::cout << "| P - Print numbers                      |" << std::endl;
 		std::cout << "| A - Add a number                       |" << std::endl;
 		std::cout << "| C - Clear the list                     |" << std::endl;
