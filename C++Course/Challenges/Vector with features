@@ -22,7 +22,7 @@ void addToList(std::vector<int>& x) {
 	std::cout << "Please enter an integer to be added."
 		<< std::endl;
 		std::cin >> y;
-	if (isdigit(y)) {
+	if (y) {
 		x.push_back(y);
 		std::cout << y << " added." <<
 			std::endl << std::endl;
