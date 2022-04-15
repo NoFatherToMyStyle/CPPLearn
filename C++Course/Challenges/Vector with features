@@ -19,12 +19,20 @@ void printList(std::vector<int>& x) {
 //Adds number to list
 void addToList(std::vector<int>& x) {
 	int y;
-	std::cout << "Please enter a number to be added."
+	std::cout << "Please enter an integer to be added."
 		<< std::endl;
-	std::cin >> y;
-	x.push_back(y);
-	std::cout << y << " added." <<
-		std::endl << std::endl;
+		std::cin >> y;
+	if (isdigit(y)) {
+		x.push_back(y);
+		std::cout << y << " added." <<
+			std::endl << std::endl;
+		}
+	else {
+		std::cin.clear();
+		std::cin.ignore(1000, '\n');
+		std::cout << "That is not an integer"
+			<< std::endl << std::endl;
+	}
 }
 //-------------------------------------------------------------------------------------
 //Finds mean of numbers in list
@@ -44,22 +52,34 @@ void meanOfList(std::vector<int>& x) {
 //-------------------------------------------------------------------------------------
 //Finds smallest number in list
 void smallestNumber(std::vector<int>& x) {
-	int small = 0;
-	for (int i : x) {
-		if (i < small) small = i;
+	int small = INT_MAX;
+	if (x.size() == 0) {
+		std::cout << "The list is empty"
+			<< std::endl << std::endl;
 	}
-	std::cout << "Smallest number is: " << small
-		<< std::endl << std::endl;
+	else {
+		for (int i : x) {
+			if (i < small) small = i;
+		}
+		std::cout << "Smallest number is: " << small
+			<< std::endl << std::endl;
+	}
 }
 //-------------------------------------------------------------------------------------
 //Find largest number in list
 void largestNumber(std::vector<int>& x) {
-	int large = 0;
-	for (int i : x) {
-		if (i > large) large = i;
+	int large = INT_MIN;
+	if (x.size() == 0) {
+		std::cout << "The list is empty"
+			<< std::endl << std::endl;
 	}
-	std::cout << "Largest number is: " << large
-		<< std::endl << std::endl;
+	else {
+		for (int i : x) {
+			if (i > large) large = i;
+		}
+		std::cout << "Largest number is: " << large
+			<< std::endl << std::endl;
+	}
 }
 //-------------------------------------------------------------------------------------
 //Menu
