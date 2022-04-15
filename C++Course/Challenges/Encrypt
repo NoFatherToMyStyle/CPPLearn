@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+
+int main() {
+	std::string alphabet{ "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" };
+	std::string key{ "XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr" };
+	std::string message;
+	std::string encrypt;
+	std::string unencrypt;
+	int position;
+
+	std::cout << "Type in a message to encrypt it: "
+		<< std::endl << std::endl;
+	std::getline(std::cin, message);
+	std::cout<< "\nThis is the encrypted message" << std::endl
+		<<        "=============================" << std::endl;
+	for (char mes : message) {
+		if (isdigit(mes) || mes == ' ' || ispunct(mes)) encrypt += mes;
+		else {
+			position = alphabet.find(mes);
+			encrypt += key[position];
+		}
+	}
+	std::cout << encrypt << std::endl;
+	for (char enc : encrypt) {
+		if (isdigit(enc) || enc == ' ' || ispunct(enc)) unencrypt += enc;
+		else {
+			position = key.find(enc);
+			unencrypt += alphabet[position];
+		}
+	}
+	
+	std::cout << "\nThis is the unencrypted message" << std::endl
+		<<         "===============================" << std::endl;
+	std::cout << unencrypt << std::endl;
+	return 0;
+}
