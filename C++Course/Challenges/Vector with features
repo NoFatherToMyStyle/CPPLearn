@@ -1,0 +1,112 @@
+#include <vector>
+#include <iostream>
+//-------------------------------------------------------------------------------------
+//Prints the list of numbers
+void printList(std::vector<int> &x) {
+	if (x.size() == 0) {
+		std::cout << "[] - the list is empty" 
+			<< std::endl << std::endl;
+	}
+	else {
+		std::cout << "[ ";
+		for (int i : x) {
+			std::cout << i << " ";
+		}
+		std::cout << "]" << std::endl << std::endl;
+	}
+}
+//-------------------------------------------------------------------------------------
+//Adds number to list
+void addToList(std::vector<int> &x) {
+	int y;
+	std::cout << "Please enter a number to be added." 
+		<< std::endl;
+	std::cin >> y;
+	x.push_back(y);
+	std::cout << y << " added." << 
+		std::endl << std::endl;
+}
+//-------------------------------------------------------------------------------------
+//Finds mean of numbers in list
+void meanOfList(std::vector<int> &x) {
+	if (x.size() == 0) {
+		std::cout << "Unable to calculate mean - no data" 
+			<< std::endl << std::endl;
+	}
+	else {
+		double sum = 0;
+		for (int i : x) {
+			sum += i;
+		}
+		std::cout << "Mean: " << sum / x.size() << std::endl << std::endl;
+	}
+}
+//-------------------------------------------------------------------------------------
+//Finds smallest number in list
+void smallestNumber(std::vector<int>& x) {
+	int small = 0;
+	for (int i : x) {
+		if (i < small) small = i;
+	}
+	std::cout << "Smallest number is: " << small
+		<< std::endl << std::endl;
+}
+//-------------------------------------------------------------------------------------
+//Find largest number in list
+void largestNumber(std::vector<int>& x) {
+	int large = 0;
+	for (int i : x) {
+		if (i > large) large = i;
+	}
+	std::cout << "Largest number is: " << large
+		<< std::endl << std::endl;
+}
+//-------------------------------------------------------------------------------------
+//Menu
+int main() {
+	char option;
+	std::vector<int> numList{};
+	bool running = true;
+	while (running == true) {
+		std::cout << "Please make a selection from the menu:" << std::endl;
+		std::cout << "P - Print numbers" << std::endl;
+		std::cout << "A - Add a number" << std::endl;
+		std::cout << "M - Display mean of the numbers" << std::endl;
+		std::cout << "S - Display the smallest number" << std::endl;
+		std::cout << "L - Display the largest number" << std::endl;
+		std::cout << "Q - Quit" << std::endl;
+		std::cin >> option;
+		std::cout << std::endl;
+		switch (option) {
+		case 'P': case 'p': {
+			printList(numList);
+			break;
+		}
+		case 'A': case 'a' : {
+			addToList(numList);
+			break;
+		}
+		case 'M': case 'm': {
+			meanOfList(numList);
+			break;
+		}
+		case 'S': case 's': {
+			smallestNumber(numList);
+			break;
+		}
+		case 'L': case 'l': {
+			largestNumber(numList);
+			break;
+		}
+		case 'Q': case 'q': {
+			running = false;
+			std::cout << "Have a great day!" << std::endl;
+			break;
+		}
+		default: {
+			std::cout << "Unknown selection, please try again." << std::endl;
+			break;
+		}
+		}
+	}
+}
