@@ -2,9 +2,9 @@
 #include <iostream>
 //-------------------------------------------------------------------------------------
 //Prints the list of numbers
-void printList(std::vector<int> &x) {
+void printList(std::vector<int>& x) {
 	if (x.size() == 0) {
-		std::cout << "[] - the list is empty" 
+		std::cout << "[] - the list is empty"
 			<< std::endl << std::endl;
 	}
 	else {
@@ -17,20 +17,20 @@ void printList(std::vector<int> &x) {
 }
 //-------------------------------------------------------------------------------------
 //Adds number to list
-void addToList(std::vector<int> &x) {
+void addToList(std::vector<int>& x) {
 	int y;
-	std::cout << "Please enter a number to be added." 
+	std::cout << "Please enter a number to be added."
 		<< std::endl;
 	std::cin >> y;
 	x.push_back(y);
-	std::cout << y << " added." << 
+	std::cout << y << " added." <<
 		std::endl << std::endl;
 }
 //-------------------------------------------------------------------------------------
 //Finds mean of numbers in list
-void meanOfList(std::vector<int> &x) {
+void meanOfList(std::vector<int>& x) {
 	if (x.size() == 0) {
-		std::cout << "Unable to calculate mean - no data" 
+		std::cout << "Unable to calculate mean - no data"
 			<< std::endl << std::endl;
 	}
 	else {
@@ -68,14 +68,18 @@ int main() {
 	std::vector<int> numList{};
 	bool running = true;
 	while (running == true) {
-		std::cout << "Please make a selection from the menu:" << std::endl;
-		std::cout << "P - Print numbers" << std::endl;
-		std::cout << "A - Add a number" << std::endl;
-		std::cout << "C - Clear the list" << std::endl;
-		std::cout << "M - Display mean of the numbers" << std::endl;
-		std::cout << "S - Display the smallest number" << std::endl;
-		std::cout << "L - Display the largest number" << std::endl;
-		std::cout << "Q - Quit" << std::endl;
+		std::cout << " ========================================" << std::endl;
+		std::cout << "| Please make a selection from the menu: |" << std::endl;
+		std::cout << "|========================================|" << std::endl;
+
+		std::cout << "| P - Print numbers                      |" << std::endl;
+		std::cout << "| A - Add a number                       |" << std::endl;
+		std::cout << "| C - Clear the list                     |" << std::endl;
+		std::cout << "| M - Display mean of the numbers        |" << std::endl;
+		std::cout << "| S - Display the smallest number        |" << std::endl;
+		std::cout << "| L - Display the largest number         |" << std::endl;
+		std::cout << "| Q - Quit                               |" << std::endl;
+		std::cout << " ========================================" << std::endl;
 		std::cin >> option;
 		std::cout << std::endl;
 		switch (option) {
