@@ -1,0 +1,22 @@
+#include <iostream>
+
+inline double covertC(double f) {
+	return (5.0 / 9.0) * (f - 32);
+}
+
+inline double covertK(double f) {
+	return (5.0 / 9.0) * (f - 32) + 273.15;
+}
+
+
+int main() {
+	double f;
+	std::cout << "Input a degree in Fahrenheit to covert: "
+		<< std::endl;
+	std::cin >> f;
+	std::cout << std::endl;
+
+	std::cout << "Celsius: " << covertC(f) << "\nKelvin: " << covertK(f)
+		<< std::endl;
+	return 0;
+}
