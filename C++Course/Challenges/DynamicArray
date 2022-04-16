@@ -1,0 +1,51 @@
+#include <iostream>
+
+void print(int *array, size_t size) {
+	std::cout << "[ ";
+	int counter = 0;
+	for(int i = 0; i < size; ++i) {
+		std::cout << array[i] << " ";
+	}
+	std::cout << "]" << std::endl;
+}
+
+int* apply_all(int *array1, size_t size1, int *array2, size_t size2) {
+
+	size_t array3_size = size1 * size2;
+	int *array3 = new int[array3_size];
+	int counter = 0;
+	for (int i = 0; i < size1; ++i) {
+		for (int i2 = 0; i < size2; ++i2) {
+			array3[counter] = array1[i] * array2[i2];
+			++counter;
+		}
+	}
+	
+	return array3;
+}
+
+
+
+int main() {
+	const size_t array1_size{ 5 };
+	const size_t array2_size{ 3 };
+
+	int array1[]{ 1 , 2, 3 , 4 ,5 };
+	int array2[]{ 10, 20, 30 };
+
+	std::cout << "Array 1: ";
+	print(array1, array1_size);
+
+	std::cout << "Array 2: ";
+	print(array2, array2_size);
+
+	int *results = apply_all(array1, array1_size, array2, array2_size);
+	constexpr size_t result_size{ array1_size * array2_size };
+
+	std::cout << "Results: ";
+	print(results, result_size);
+
+	std::cout << std::endl;
+
+	return 0;
+}
